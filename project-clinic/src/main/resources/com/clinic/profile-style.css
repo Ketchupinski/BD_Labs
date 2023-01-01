@@ -1,0 +1,41 @@
+#titleLabel {
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
+
+#backButton {
+    -fx-background-color: #003bff;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+}
+
+.label {
+    -fx-font-size: 20px;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
+
+#firstNameLabel {
+    -fx-font-size: 20px;
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+}
+
+#lastNameLabel {
+    -fx-font-size: 20px;
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+}
+
+#emailLabel {
+    -fx-font-size: 20px;
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+}

@@ -1,0 +1,55 @@
+#anchorPain {
+    -fx-background-color: #ffffff;
+}
+
+#titleLabel {
+    -fx-font-size: 70px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
+
+#backToLoginButton {
+    -fx-background-color: #228cca;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+}
+
+.label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
+
+.text-field {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
+
+#errorLabel {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ff0000;
+    -fx-font-family: "Arial";
+}
+
+#registerButton {
+    -fx-background-color: #228cca;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+}
+
+#selectPhotoButton {
+    -fx-background-color: #1ed044;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+}

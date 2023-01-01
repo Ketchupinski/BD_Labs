@@ -1,0 +1,25 @@
+
+k
+java:S1104"UMake USER_ROLE a static final constant or non-public and provide accessors if needed.(¥–±¦
+n
+java:S1104"SMake PATIENT a static final constant or non-public and provide accessors if needed.(΅νίβόÿÿÿÿ
+m
+java:S1104"RMake DOCTOR a static final constant or non-public and provide accessors if needed.(£τίίϋÿÿÿÿ
+g
+java:S1104"QMake VISIT a static final constant or non-public and provide accessors if needed.(άγε
+E
+java:S1444"/Make this "public static USER_ROLE" field final(¥–±¦
+H
+java:S1444"-Make this "public static PATIENT" field final(΅νίβόÿÿÿÿ
+G
+java:S1444",Make this "public static DOCTOR" field final(£τίίϋÿÿÿÿ
+A
+java:S1444"+Make this "public static VISIT" field final(άγε
+j
+java:S3008"TRename this field "USER_ROLE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥–±¦
+m
+java:S3008"RRename this field "PATIENT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(΅νίβόÿÿÿÿ
+l
+java:S3008"QRename this field "DOCTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£τίίϋÿÿÿÿ
+f
+java:S3008"PRename this field "VISIT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(άγε

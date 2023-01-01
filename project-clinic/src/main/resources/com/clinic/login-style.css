@@ -1,0 +1,54 @@
+#emailTextLabel {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
+
+#passwordTextLabel {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
+
+#loginButton {
+    -fx-background-color: #228cca;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+}
+
+#registrationButton {
+    -fx-background-color: #228cca;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+}
+
+#wrongInputLabel {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ff0000;
+    -fx-font-family: "Arial";
+}
+
+#tittleLabel {
+    -fx-font-size: 70px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
+
+#anchorPain {
+    -fx-background-color: #ffffff;
+}
+
+#emailInputField {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}

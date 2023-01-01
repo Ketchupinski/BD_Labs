@@ -1,0 +1,52 @@
+#tittleLabel {
+    -fx-font-size: 70px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
+
+.label {
+    -fx-font-size: 20px;
+    -fx-font-weight: italic;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
+
+.text-area {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
+
+.bold_label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
+
+#anchorPain {
+    -fx-background-color: #ffffff;
+}
+
+.button {
+    -fx-background-color: #003bff;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+#visitButton {
+    -fx-background-color: #1ed044;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+#cancelButton {
+    -fx-background-color: #ff0000;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}

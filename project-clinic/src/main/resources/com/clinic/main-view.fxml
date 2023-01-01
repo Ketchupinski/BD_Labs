@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="607.0" prefWidth="934.0" stylesheets="@main-style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.clinic.MainController">
+    <TableView fx:id="visitsTable" layoutX="14.0" layoutY="87.0" prefHeight="431.0" prefWidth="575.0">
+      <columns>
+          <TableColumn fx:id="patientColumn" prefWidth="94.0" text="Patient" />
+          <TableColumn fx:id="doctorColumn" minWidth="4.0" prefWidth="118.0" text="Doctor" />
+          <TableColumn fx:id="specializationColumn" minWidth="4.0" prefWidth="137.0" text="Specialization" />
+          <TableColumn fx:id="statusColumn" minWidth="4.0" prefWidth="106.0" text="Status" />
+         <TableColumn fx:id="dateColumn" minWidth="4.0" prefWidth="119.0" text="Date" />
+      </columns>
+    </TableView>
+    <Label fx:id="welcomeLabel" layoutX="14.0" layoutY="14.0" prefHeight="43.0" prefWidth="575.0" text="Dear, ______, welcome to Clinic" />
+    <Button fx:id="logOutButton" layoutX="819.0" layoutY="14.0" mnemonicParsing="false" onAction="#onLogOutButtonClick" prefHeight="30.0" prefWidth="101.0" text="Logout" />
+    <Button fx:id="allAplliesButton" layoutX="664.0" layoutY="100.0" mnemonicParsing="false" onAction="#onAllAppliesButtonClick" prefHeight="44.0" prefWidth="192.0" text="Show all applies" />
+    <DatePicker fx:id="dateFromField" layoutX="741.0" layoutY="238.0" />
+    <Line endX="208.0" layoutX="706.0" layoutY="210.0" startX="-100.0" />
+    <Label layoutX="685.0" layoutY="172.0" text="Filtering visits" />
+    <Label layoutX="596.0" layoutY="236.0" text="Date from:" />
+    <DatePicker fx:id="dateToField" layoutX="741.0" layoutY="304.0" />
+    <Label layoutX="596.0" layoutY="302.0" prefHeight="16.0" prefWidth="76.0" text="Date to:" />
+    <Label fx:id="doctorPatientLabel" layoutX="596.0" layoutY="366.0" text="Doctor:" />
+    <ComboBox fx:id="doctorPatientBox" layoutX="741.0" layoutY="368.0" prefHeight="25.0" prefWidth="174.0" />
+    <Label fx:id="specializationLabel" layoutX="596.0" layoutY="420.0" text="Specialization:" />
+    <ComboBox fx:id="specializationBox" layoutX="741.0" layoutY="422.0" prefHeight="25.0" prefWidth="174.0" />
+    <Button fx:id="filterButton" layoutX="676.0" layoutY="474.0" mnemonicParsing="false" onAction="#onFilterButtonClick" prefHeight="43.0" prefWidth="130.0" text="Filter" />
+    <Button fx:id="createApplicationButton" layoutX="14.0" layoutY="539.0" mnemonicParsing="false" onAction="#onCreateApplicationButtonClick" prefHeight="44.0" prefWidth="199.0" text="Create new application" />
+    <Button fx:id="visitInfoButton" layoutX="235.0" layoutY="539.0" mnemonicParsing="false" onAction="#onVisitInfoButtonClick" prefHeight="44.0" prefWidth="112.0" text="Visit info" />
+   <Button fx:id="profileButton" layoutX="654.0" layoutY="15.0" mnemonicParsing="false" onAction="#onProfileButtonClick" prefHeight="43.0" prefWidth="143.0" text="My profile" />
+</AnchorPane>
