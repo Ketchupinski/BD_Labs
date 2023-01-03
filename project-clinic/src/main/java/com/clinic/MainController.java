@@ -53,6 +53,8 @@ public class MainController {
     public Label specializationLabel;
     @FXML
     public Button profileButton;
+    @FXML
+    public Button historyButton;
 
 
     @FXML
@@ -75,7 +77,9 @@ public class MainController {
             specializationBox.getItems().addAll(DBService.getAllSpecializations());
             createApplicationButton.setVisible(true);
             profileButton.setVisible(true);
+            historyButton.setVisible(false);
         } else {
+            historyButton.setVisible(true);
             doctorPatientLabel.setText("Patient:");
             specializationLabel.setText("Status:");
             doctorPatientBox.getItems().addAll(DBService.getDoctorPatients());
@@ -170,6 +174,15 @@ public class MainController {
     public void onProfileButtonClick(ActionEvent actionEvent) {
         try {
             SceneSwitcher.changeScene(SceneSwitcher.PROFILE_VIEW, SceneSwitcher.PROFILE_STYLE, actionEvent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onHistoryButtonClick(ActionEvent actionEvent) {
+        try {
+            SceneSwitcher.changeScene(SceneSwitcher.HISTORY_VIEW, SceneSwitcher.HISTORY_STYLE, actionEvent);
         } catch (Exception e) {
             e.printStackTrace();
         }

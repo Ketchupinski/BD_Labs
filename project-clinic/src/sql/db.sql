@@ -120,6 +120,77 @@ VALUES (1, 5, '2020-01-01', 1, 'I have a problem with my heart'),
        (2, 5, '2021-05-20', 1, 'I have a problem with my heart'),
        (3, 5, '2022-06-21', 1, 'I have pain in my heart');
 
+CREATE OR REPLACE PROCEDURE update_status(IN visit_id INT, IN status_id INT) AS
+    $$
+    BEGIN UPDATE visits SET status_id = status_id WHERE id = visit_id;
+    END;
+    $$
+    LANGUAGE plpgsql;
+
+CREATE OR REPLACE PROCEDURE delete_visit(IN visit_id INT) AS
+    $$
+    BEGIN DELETE FROM visits WHERE id = visit_id;
+    END;
+    $$
+    LANGUAGE plpgsql;
+
+CREATE OR REPLACE PROCEDURE add_diagnosis(IN visit_id INT, IN name VARCHAR, IN treatment VARCHAR) AS
+    $$
+    BEGIN INSERT INTO diagnoses (visit_id, name, treatment) VALUES (visit_id, name, treatment);
+    END;
+    $$
+    LANGUAGE plpgsql;
+
+CREATE OR REPLACE PROCEDURE update_diagnosis(IN diagnosis_id INT, IN name VARCHAR, IN treatment VARCHAR) AS
+    $$
+    BEGIN
+        INSERT INTO diagnoses (id, name, treatment) VALUES (diagnosis_id, name, treatment) ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, treatment = EXCLUDED.treatment;
+    end;
+    $$
+    LANGUAGE plpgsql;
+
+CREATE OR REPLACE PROCEDURE delete_diagnosis(IN diagnosis_id INT) AS
+    $$
+    BEGIN
+        DELETE FROM diagnoses WHERE id = diagnosis_id;
+    end;
+    $$
+    LANGUAGE plpgsql;
+
+CREATE OR REPLACE PROCEDURE add_visit(IN user_id INT, IN doctor_id INT, IN date DATE, IN problem VARCHAR) AS
+    $$
+    BEGIN INSERT INTO visits (user_id, doctor_id, date, status_id, problem) VALUES (user_id, doctor_id, date, 1, problem);
+    END;
+    $$
+    LANGUAGE plpgsql;
+
+CREATE OR REPLACE PROCEDURE update_visit(IN visit_id INT, IN user_id INT, IN doctor_id INT, IN date DATE, IN problem VARCHAR) AS
+    $$
+    BEGIN INSERT INTO visits (id, user_id, doctor_id, date, problem) VALUES (visit_id, user_id, doctor_id, date, problem) ON CONFLICT (id) DO UPDATE SET user_id = EXCLUDED.user_id, doctor_id = EXCLUDED.doctor_id, date = EXCLUDED.date, problem = EXCLUDED.problem;
+    END;
+    $$
+    LANGUAGE plpgsql;
+
+CREATE OR REPLACE PROCEDURE add_user(IN first_name VARCHAR, IN last_name VARCHAR, IN email VARCHAR, IN password VARCHAR, IN role_id INT) AS
+    $$
+    BEGIN INSERT INTO users (first_name, last_name, email, password, role_id) VALUES (first_name, last_name, email, password, role_id);
+    END;
+    $$
+    LANGUAGE plpgsql;
+
+CREATE OR REPLACE PROCEDURE update_user(IN user_id INT, IN first_name VARCHAR, IN last_name VARCHAR, IN email VARCHAR, IN password VARCHAR, IN role_id INT) AS
+    $$
+    BEGIN INSERT INTO users (id, first_name, last_name, email, password, role_id) VALUES (user_id, first_name, last_name, email, password, role_id) ON CONFLICT (id) DO UPDATE SET first_name = EXCLUDED.first_name, last_name = EXCLUDED.last_name, email = EXCLUDED.email, password = EXCLUDED.password, role_id = EXCLUDED.role_id;
+    END;
+    $$
+    LANGUAGE plpgsql;
+
+CREATE OR REPLACE PROCEDURE delete_user(IN user_id INT) AS
+    $$
+    BEGIN DELETE FROM users WHERE id = user_id;
+    END;
+    $$
+    LANGUAGE plpgsql;
 
 
 

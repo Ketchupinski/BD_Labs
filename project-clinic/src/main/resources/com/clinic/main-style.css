@@ -71,3 +71,10 @@
     -fx-font-size: 20px;
     -fx-font-weight: bold;
 }
+
+#historyButton {
+    -fx-background-color: #00ffff;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}

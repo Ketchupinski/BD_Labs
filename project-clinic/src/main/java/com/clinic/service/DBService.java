@@ -109,6 +109,38 @@ public final class DBService {
         }
     }
 
+    public static List<Visit> getAllDoctorVisits() {
+        try (Connection connection = connectionPool.getConnection()) {
+            List<Visit> visits = DBManager.getAllDoctorVisits(connection, GlobalInfo.DOCTOR.getId());
+            connectionPool.releaseConnection(connection);
+            return visits;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
+    }
+
+    public static void deleteVisit(Visit selectedItem) {
+        try (Connection connection = connectionPool.getConnection()) {
+            DBManager.deleteVisit(connection, selectedItem);
+            connectionPool.releaseConnection(connection);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static List<Visit> getVisitsByDoctorPatient(String patient, int doctorId) {
+        try (Connection connection = connectionPool.getConnection()) {
+            List<Visit> visits = DBManager.getVisitsByDoctorPatient(connection, patient, doctorId);
+            connectionPool.releaseConnection(connection);
+            return visits;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
+    }
+
 
     public boolean loginUser(String email, String pass) {
         if (email.isEmpty() && pass.isEmpty() &&

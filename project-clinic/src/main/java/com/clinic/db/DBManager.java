@@ -5,6 +5,7 @@ import com.clinic.entity.Patient;
 import com.clinic.entity.Visit;
 import com.clinic.service.Status;
 import com.clinic.service.UserRole;
+import com.clinic.util.GlobalInfo;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -139,6 +140,80 @@ public class DBManager {
         }
     }
 
+    public static List<Visit> getAllDoctorVisits(Connection connection, int id) {
+        List<Visit> visits = new ArrayList<>();
+        String query = "SELECT v.id as id, v.date as date, v.problem as problem, v.status_id as status_id, " +
+                "u.first_name as first_name, u.last_name as last_name, u.id as user_id, s.name as spec " +
+                "FROM visits v " +
+                "INNER JOIN users u on v.user_id = u.id " +
+                "INNER JOIN users d on v.doctor_id = d.id " +
+                "INNER JOIN doctors_specializations ds on d.id = ds.doctor_id " +
+                "INNER JOIN specializations s on ds.specialization_id = s.id " +
+                "WHERE v.doctor_id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Visit visit = new Visit();
+                visit.setId(resultSet.getInt("id"));
+                visit.setDate(resultSet.getDate("date"));
+                visit.setProblem(resultSet.getString("problem"));
+                visit.setStatus(Status.getById(resultSet.getInt("status_id")));
+                visit.setPatientFullName(resultSet.getString("first_name") + " " + resultSet.getString("last_name"));
+                visit.setSpecialization(resultSet.getString("spec"));
+                visit.setDoctorFullName(GlobalInfo.DOCTOR.getName() + " " + GlobalInfo.DOCTOR.getLastName());
+                visits.add(visit);
+            }
+            return visits;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
+    }
+
+    public static void deleteVisit(Connection connection, Visit selectedItem) {
+        String query = "DELETE FROM visits WHERE id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, selectedItem.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Visit> getVisitsByDoctorPatient(Connection connection, String patient, int doctorId) {
+        List<Visit> visits = new ArrayList<>();
+        String query = "SELECT v.id as id, v.date as date, v.problem as problem, v.status_id as status_id, " +
+                "u.first_name as first_name, u.last_name as last_name, u.id as user_id, s.name as spec " +
+                "FROM visits v " +
+                "INNER JOIN users u on v.user_id = u.id " +
+                "INNER JOIN users d on v.doctor_id = d.id " +
+                "INNER JOIN doctors_specializations ds on d.id = ds.doctor_id " +
+                "INNER JOIN specializations s on ds.specialization_id = s.id " +
+                "WHERE v.doctor_id = ? AND (u.first_name LIKE '%" + patient + "%' OR u.last_name LIKE '%" + patient + "%' " +
+                "OR CONCAT(u.first_name, ' ', u.last_name) LIKE '%" + patient + "%')";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, doctorId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Visit visit = new Visit();
+                visit.setId(resultSet.getInt("id"));
+                visit.setDate(resultSet.getDate("date"));
+                visit.setProblem(resultSet.getString("problem"));
+                visit.setStatus(Status.getById(resultSet.getInt("status_id")));
+                visit.setPatientFullName(resultSet.getString("first_name") + " " + resultSet.getString("last_name"));
+                visit.setSpecialization(resultSet.getString("spec"));
+                visit.setDoctorFullName(GlobalInfo.DOCTOR.getName() + " " + GlobalInfo.DOCTOR.getLastName());
+                visits.add(visit);
+            }
+            return visits;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
+    }
+
+
     public boolean checkLoginUser(String email, String pass, Connection connection) {
         String query = "SELECT * FROM users WHERE email = ? AND password = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -167,7 +242,7 @@ public class DBManager {
     }
 
     public Doctor getDoctorByEmail(String email, Connection connection) {
-        String query = "SELECT users.id as id, name as first_name, last_name as last_name, " +
+        String query = "SELECT users.id as id, users.first_name as first_name, last_name as last_name, " +
                 "email as email, password as pass, specializations.name as specialization " +
                 "FROM users " +
                 "INNER JOIN doctors_specializations ON users.id = doctors_specializations.doctor_id " +

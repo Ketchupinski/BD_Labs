@@ -32,5 +32,5 @@
         </font>
     </Label>
     <Button fx:id="loginButton" layoutX="324.0" layoutY="341.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="41.0" prefWidth="143.0" text="Login" />
-    <Button fx:id="registrationButton" layoutX="312.0" layoutY="395.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" prefHeight="37.0" prefWidth="168.0" text="Registration" />
+    <Button fx:id="registrationButton" layoutX="312.0" layoutY="395.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" prefHeight="41.0" prefWidth="168.0" text="Registration" />
 </AnchorPane>

@@ -37,6 +37,9 @@ public final class SceneSwitcher {
 
     public static final String END_VISIT_STYLE = "end-visit-style.css";
 
+    public static final String HISTORY_VIEW = "history-view.fxml";
+
+    public static final String HISTORY_STYLE = "history-style.css";
 
     public static void changeScene(String fxml, String css, ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxml));
