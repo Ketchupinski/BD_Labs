@@ -1,7 +1,11 @@
 
-Ÿ
-java:S1192 "}Define a constant instead of duplicating this literal "INNER JOIN specializations s on ds.specialization_id = s.id " 3 times.(õı®Òÿÿÿÿÿ8¸¾‘õÖ0
-h
-java:S1192%"KDefine a constant instead of duplicating this literal "first_name" 4 times.(§Ó¤8¸¾‘õÖ0
-g
-java:S1192%"JDefine a constant instead of duplicating this literal "last_name" 5 times.(§Ó¤8¸¾‘õÖ0
+m
+java:S1192¡"JDefine a constant instead of duplicating this literal "status_id" 3 times.(±¾áîûÿÿÿÿ8«©•§×0
+f
+java:S1192 "HDefine a constant instead of duplicating this literal "problem" 3 times.(úéÈ“8¬©•§×0
+˜
+java:S1192!"}Define a constant instead of duplicating this literal "INNER JOIN specializations s on ds.specialization_id = s.id " 5 times.(õı®Òÿÿÿÿÿ
+a
+java:S1192&"KDefine a constant instead of duplicating this literal "first_name" 6 times.(§Ó¤
+`
+java:S1192&"JDefine a constant instead of duplicating this literal "last_name" 7 times.(§Ó¤
